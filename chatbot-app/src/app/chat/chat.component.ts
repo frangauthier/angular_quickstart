@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JsonapiService } from '../services/jsonapi.service';
 
 @Component({
   selector: 'app-chat',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private jsonAPIService: JsonapiService
+  ) { }
 
   ngOnInit(): void {
+    this.jsonAPIService.getTodo().subscribe(
+      (data) => {
+        console.log('data: ', data);
+      }
+    )
   }
 
 }
