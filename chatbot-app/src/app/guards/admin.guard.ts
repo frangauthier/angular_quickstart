@@ -3,14 +3,14 @@ import { CanActivate } from "@angular/router";
 import { AdminService } from "../services/admin.service";
 
 @Injectable()
-export class AlwaysAuthGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
-    constructor(private adminService: AdminService) { }
+    constructor(
+        private adminService: AdminService
+    ) {}
 
     canActivate() {
-        console.log("AlwaysAuthGuard");
         const password = prompt('Password please');
-        return this.adminService.isUserAdmin(password);
+        return this.adminService.isUserAdministrator(password);
     }
-
 }

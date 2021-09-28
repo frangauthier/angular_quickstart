@@ -8,7 +8,8 @@ export class AdminService {
 
   constructor() { }
 
-  isUserAdmin(password: string | null) {
-    return password === environment.adminPassword;
+  isUserAdministrator(password: string | null) {
+    if(password === environment.adminPassword) return true;
+    return false;
   }
 }

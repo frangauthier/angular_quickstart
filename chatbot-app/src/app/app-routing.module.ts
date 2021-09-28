@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlwaysAuthGuard } from './guard/always.guard';
-import { AdminComponent } from './layout/admin/admin.component';
-import { ChatComponent } from './layout/chat/chat.component';
-import { HomeComponent } from './layout/home/home.component';
-import { NotFoundComponent } from './layout/not-found/not-found.component';
+import { AdminComponent } from './admin/admin.component';
+import { ChatComponent } from './chat/chat.component';
+import { AdminGuard } from './guards/admin.guard';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AlwaysAuthGuard] },
-  { path: 'chat', component: ChatComponent },
-  { path: '**', component: NotFoundComponent },
+  {path: '', component: HomeComponent},
+  {path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
+  {path: 'chat', component: ChatComponent},
+  {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({
