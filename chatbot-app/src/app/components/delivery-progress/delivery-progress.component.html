@@ -1,0 +1,17 @@
+<!-- <p>delivery-progress works! eta is {{delivery?.eta}}</p> -->
+
+<!-- <div class="container" style="width: 100vw;">
+    <div class="row">
+        <div class="col-10">
+            <ngb-progressbar type="secondary" [value]="valueOf(delivery)" [striped]="true" [animated]="true" height="2rem"><i>{{delivery?.status}}</i></ngb-progressbar>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-danger"><i class="bi bi-x"></i></button>
+        </div>
+    </div>
+</div> -->
+
+<div fxLayout="row">
+    <ngb-progressbar fxFill class="mr-2" type="secondary" [value]="valueOf(delivery)" [striped]="true" [animated]="true" height="2rem"><i>{{delivery?.status}}</i></ngb-progressbar>
+    <button class="btn btn-danger"><i class="bi bi-x"></i></button>
+</div>

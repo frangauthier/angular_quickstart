@@ -1,0 +1,18 @@
+<div class="container">
+    <!-- Add new delivery -->
+    <section>
+        <div class="row my-2">
+            <div class="d-flex container justify-content-end">
+                <button type="button" class="btn btn-secondary text-light" (click)="addNewDelivery()">Add new delivery</button>
+            </div>
+        </div>
+    </section>
+    <!-- List deliveries -->
+    <section>
+        <div class="row bg-light my-2">
+            <div *ngFor="let delivery of deliveries" class="full-width">
+                <app-delivery-progress [delivery]="delivery"></app-delivery-progress>
+            </div>
+        </div>
+    </section>
+</div>
