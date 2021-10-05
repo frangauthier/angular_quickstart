@@ -8,6 +8,8 @@ import { JsonapiService } from '../services/jsonapi.service';
 })
 export class ChatComponent implements OnInit {
 
+  textInput = '';
+
   constructor(
     private jsonAPIService: JsonapiService
   ) { }
@@ -18,6 +20,10 @@ export class ChatComponent implements OnInit {
         console.log('data: ', data);
       }
     )
+  }
+
+  onClickButton() {
+    console.log('textInput: ', this.textInput);
   }
 
 }

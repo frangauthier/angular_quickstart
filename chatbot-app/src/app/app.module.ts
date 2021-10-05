@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminGuard } from './guards/admin.guard';
+import { DeliveryComponent } from './components/delivery/delivery.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AdminGuard } from './guards/admin.guard';
     NotFoundComponent,
     HomeComponent,
     NavbarComponent,
+    DeliveryComponent,
   ],
   imports: [
     BrowserModule,
