@@ -4,13 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 // App
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// Components/layouts
-import { AdminComponent } from './layout/admin/admin.component';
-import { ChatComponent } from './layout/chat/chat.component';
-import { NotFoundComponent } from './layout/not-found/not-found.component';
-import { HomeComponent } from './layout/home/home.component';
-// Guard
-import { AlwaysAuthGuard } from './guard/always.guard';
+import { AdminComponent } from './admin/admin.component';
+import { ChatComponent } from './chat/chat.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminGuard } from './guards/admin.guard';
+import { DeliveryComponent } from './components/delivery/delivery.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,17 @@ import { AlwaysAuthGuard } from './guard/always.guard';
     ChatComponent,
     NotFoundComponent,
     HomeComponent,
+    NavbarComponent,
+    DeliveryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [
-    AlwaysAuthGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })
