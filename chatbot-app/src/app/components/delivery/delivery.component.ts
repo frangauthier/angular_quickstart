@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeliveryService, deliveryStatus } from 'src/app/services/delivery.service';
+import { WebsocketService } from 'src/app/services/websocket.service';
 
 @Component({
   selector: 'app-delivery',
@@ -9,19 +10,25 @@ import { DeliveryService, deliveryStatus } from 'src/app/services/delivery.servi
 export class DeliveryComponent implements OnInit {
 
   deliveriesArray: any[] = [];
+  myTextInput: string = '';
 
   constructor(
     private deliveryService: DeliveryService,
+    private websocketService: WebsocketService,
   ) { }
 
   ngOnInit(): void {
     this.deliveryService.deliveries.subscribe((deliveries) => {
       this.deliveriesArray = deliveries
     })
+
+    this.websocketService.openWebSocket();
   }
 
   onClickAddNewDelivery() {
-    console.log('click')
+    console.log('text input', this.myTextInput);
+    this.websocketService.sendMessage(this.myTextInput);
+    this.myTextInput = '';
     this.deliveryService.addNewDelivery();
   }
 

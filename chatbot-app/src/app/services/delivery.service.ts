@@ -21,7 +21,11 @@ export class DeliveryService {
 
     deliveries: BehaviorSubject<iDelivery[]> = new BehaviorSubject([] as iDelivery[]);
 
-    constructor() { }
+    constructor() {
+        for(let i=0; i<4; i++){
+            this.addNewDelivery()
+        }
+     }
 
     addNewDelivery() {
         const newDel = this.generateNewDelivery()

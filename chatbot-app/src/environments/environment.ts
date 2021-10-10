@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   adminPassword: '1234',
-  todoAPIUrl: 'https://jsonplaceholder.typicode.com/todos'
+  todoAPIUrl: 'https://jsonplaceholder.typicode.com/todos',
+  wsEndpoint: 'ws://localhost:8081'
 };
 
 /*
