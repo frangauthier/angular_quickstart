@@ -1,0 +1,36 @@
+<div>
+    <h2>Cars list</h2>
+    <div *ngIf="!cars.length; else carlist">
+        <div class="h4 text-warning">There is no cars</div>
+    </div>
+    <ng-template #carlist>
+        <div class="container">
+            <div class="border row fw-bold">
+                <span class="col-3">Number</span>
+                <span class="col-3">Year</span>
+                <span class="col-3">Model</span>
+                <span class="col-3">Color</span>
+                <span class="col-3">Is Available?</span>
+            </div>
+        </div>
+        <div class="container" *ngFor="let car of cars">
+            <!-- one car -->
+            <!-- {{car?.model}} -->
+            <div class="border row">
+                <span class="col-3">{{car.carId}}</span>
+                <span class="col-3">{{car.year}}</span>
+                <span class="col-3">{{car.model}}</span>
+                <span class="col-3">{{car.color}}</span>
+                <!-- {{car.model}} | {{car.year}} -->
+                <span class="col-3">
+                    <div *ngIf="!car.inRental">
+                        <i class="bi bi-check2-circle text-success"></i>
+                    </div>
+                    <div *ngIf="car.inRental">
+                        <i class="bi bi-clock text-warning"></i>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </ng-template>
+</div>

@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  adminPassword: '1234',
-  todoAPIUrl: 'https://jsonplaceholder.typicode.com/todos'
+  adminPassword: 'admin',
+  serverUrl: 'http://localhost:8080',
+  serverApiKey: '7654321'
 };
 
 /*

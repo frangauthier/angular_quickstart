@@ -1,0 +1,39 @@
+<div class="conatiner-fluid mt-4">
+    <div class="row">
+        <div class="col">
+            <div class="container">
+                <app-car-list [cars]="cars"></app-car-list>
+            </div>
+        </div>
+        <div class="col">
+            <div>
+                <div class="container-fluid">
+                    <div class="row justify-content-between">
+                        <span class="h2 col-9">Rentals list</span>
+                        <button class="btn btn-primary col-3 text-light" routerLink="/rental/create">Create new rental</button>
+                    </div>
+                </div>
+                <div *ngIf="!rentals.length; else rentalList">
+                    <div class="h4 text-warning">There is no rentals</div>
+                </div>
+                <ng-template #rentalList>
+                    <div class="container">
+                        <div class="border row fw-bold">
+                            <span class="col-3">Car</span>
+                            <span class="col-3">Start</span>
+                            <span class="col-3">End</span>
+                        </div>
+                    </div>
+                    <div class="container" *ngFor="let rental of rentals">
+                        <div class="border row">
+                            <span class="col-3">{{rental.carId}}</span>
+                            <span class="col-3">{{rental.startTime | date}}</span>
+                            <span class="col-3">{{rental.endTime | date}}</span>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

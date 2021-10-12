@@ -1,0 +1,39 @@
+<div class="container bg-light m-3">
+
+    <h4>Create a new rental</h4>
+    <div class="row justify-content-evenly m-2">
+        <div class="col-3">
+            <b>Selected car: </b>
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{carSelected ? carSelected.model + '-' +carSelected.carId : 'Select a car'}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <div *ngFor="let carOption of carsAvailable">
+                        <button ngbDropdownItem (click)="onSelectCarOption(carOption)">{{carOption.model}}-{{carOption.year}} - {{carOption.carId}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div>
+                Starting day
+            </div>
+            <ngb-datepicker #d [(ngModel)]="startTime"></ngb-datepicker>
+        </div>
+        <div class="col-3">
+            <div>
+                Ending day
+            </div>
+            <ngb-datepicker #d [(ngModel)]="endTime"></ngb-datepicker>
+        </div>
+    </div>
+
+    <div class="row justify-content-end mt-2">
+        <div class="col-2">
+        </div>
+        <div class="col-2">
+            <button class="btn btn-outline-primary" (click)="onCreateRentalClick()">Create</button>
+            <button class="btn btn-outline-danger" routerLink="/rental">Cancel</button>
+        </div>
+    </div>
+
+</div>

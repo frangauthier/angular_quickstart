@@ -1,36 +1,40 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // App
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminComponent } from './admin/admin.component';
-import { ChatComponent } from './chat/chat.component';
-import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminGuard } from './guards/admin.guard';
-import { DeliveryComponent } from './components/delivery/delivery.component';
+import { RentalComponent } from './components/rental/rental.component';
+import { CreateRentalComponent } from './components/create-rental/create-rental.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CarListComponent } from './components/car-list/car-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
-    ChatComponent,
     NotFoundComponent,
     HomeComponent,
     NavbarComponent,
-    DeliveryComponent,
+    RentalComponent,
+    CreateRentalComponent,
+    CarListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
   ],
   providers: [
-    AdminGuard
+    AdminGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

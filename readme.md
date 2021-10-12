@@ -1,4 +1,4 @@
 Initialization:
 
-1. npm install @angular/cli
-2. npm install @angular/core
+1. npm install 
+2. npm run start
