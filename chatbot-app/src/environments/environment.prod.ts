@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   adminPassword: 'admin',
-  serverUrl: 'http://localhost:8080',
+  serverUrl: 'https://mysecondazuretransactionalwebapp.azurewebsites.net',
   serverApiKey: '7654321'
 };
